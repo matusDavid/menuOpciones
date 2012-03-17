@@ -5,7 +5,7 @@ objetivo:
 	imprimir un menu con 4 opciones y que el usuario pueda escojer del 1-4 y cada numero hace
 que se ejecute una clase que contiene el procedimiento para obtener el perimetro y el area ya se 
 	el menu		1. Cuadrado.
-			2. Triángulo.
+			2. Triï¿½ngulo.
 			3. Circulo.
 			4. Salir del sistema.
 MANEJANDO LOS ERRORES
@@ -21,3 +21,114 @@ THE INSTRUCCION ARE. THE POINT IS TO CALCULATE THE AREA AND PERIMETER ON
 			3. CIRCLE.
 			4. END PROGRAM
 MANAGING THE ERRORS 
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+public class menuOpciones {
+	private static BufferedReader stdIn= new BufferedReader (new InputStreamReader (System.in)); //leer datos de teclado 
+	private static PrintWriter stdOut= new PrintWriter (System.out,true); //escribe en la pantalla 
+	private static PrintWriter stdErr= new PrintWriter (System.err,true); //escribe los errores en la pantalla 
+	/**
+	 * @author Matus
+	 * @VERSION 1.0
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// EL MENU
+		do{
+		stdOut.println("Escoje una opcion del [1-4]>");
+		stdOut.println(" 1. Cuadrado.");
+		stdOut.println(" 2. TriÃ¡ngulo.");
+		stdOut.println(" 3. Circulo.");
+		stdOut.println(" 4. Salir del sistema.");
+	
+		try {
+			int opc=Integer.parseInt(stdIn.readLine());
+			if (opc==1){
+				perimetroAreacuadrado();
+				}else if(opc==2){
+					perimetroAreatriangulo();
+				}else if(opc==3){
+					perimetroAreacirculo();
+				}else if(opc==4){
+					break;
+				}//fin del if else 
+		} catch (IOException e) {
+			stdErr.println(e.toString());
+		} catch (NumberFormatException e) {
+			stdErr.println(e.toString());
+		}//fin de catch
+		}while (true);
+	}//fin de main 
+
+	private static void perimetroAreacuadrado(){
+		int lado;
+		int resultadoPeri;
+		int resultadoArea;
+		String nombre="Cuadrado:";
+		try {
+			stdOut.println("un lado del cuadrado");
+			lado=Integer.parseInt(stdIn.readLine());
+			resultadoPeri=4*lado;
+			resultadoArea=lado*lado;
+			stdOut.println(nombre+">El perimetro es de: " + resultadoPeri+"unidades");
+			stdOut.println("El area es de "+ resultadoArea+"unidades cuadradas");
+			stdOut.println();
+		} catch (IOException e) {
+			stdErr.println(e.toString());
+		} catch (NumberFormatException e) {
+			stdErr.println(e.toString());
+		}//fin de catch
+	}//fin de perimetroAreacuadrado()
+	private static void perimetroAreatriangulo(){
+		int lado1,lado2,lado3;
+		int resultadoPeri;
+		int resultadoArea;
+		String nombre="Triangulo:";
+		int alt;
+		int base;
+		try {
+			stdOut.println("INGRESA EL 1 LADO");
+			lado1=Integer.parseInt(stdIn.readLine());
+			stdOut.println("INGRESA EL 2 LADO");
+			lado2=Integer.parseInt(stdIn.readLine());
+			stdOut.println("INGRESA EL 3 LADO");
+			lado3=Integer.parseInt(stdIn.readLine());
+			stdOut.println("INGRESA LA BASE");
+			base=Integer.parseInt(stdIn.readLine());
+			stdOut.println("INGRESA ALTURA");
+			alt=Integer.parseInt(stdIn.readLine());
+			resultadoPeri=lado1+lado2+lado3;
+			resultadoArea=(base*alt)/2;
+			stdOut.println(nombre+">El perimetro es de: " + resultadoPeri+"unidades");
+			stdOut.println("El area es de "+ resultadoArea+"unidades cuadradas");
+			stdOut.println();
+		} catch (IOException e) {
+			stdErr.println(e.toString());
+		} catch (NumberFormatException e) {
+			stdErr.println(e.toString());
+		}//fin de catch
+	}//fin de perimetroAreatriangulo()
+	private static void perimetroAreacirculo(){
+		double rad;
+		double resultadoPeri;
+		double resultadoArea;
+		String nombre="Circulo:";
+		
+		try {
+			stdOut.println("INGRESA EL RADIO");
+			rad=Double.parseDouble(stdIn.readLine());
+			resultadoPeri=(2*Math.PI)*rad;
+			resultadoArea=Math.PI*(rad*rad);
+			stdOut.println(nombre+">La circunferencia es de: " + resultadoPeri+"unidades");
+			stdOut.println("El area es de "+ resultadoArea+"unidades cuadradas");
+			stdOut.println();
+		} catch (IOException e) {
+			stdErr	.println(e.toString());
+		} catch (NumberFormatException e) {
+			stdErr.println(e.toString());
+		}//fin de catch
+	}//fin de perimetroAreacirculo()
+}//fin de clase menuOpciones
