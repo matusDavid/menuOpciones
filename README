@@ -1,0 +1,23 @@
+english , spanish
+
+codigo esta en formato de java
+objetivo: 
+	imprimir un menu con 4 opciones y que el usuario pueda escojer del 1-4 y cada numero hace
+que se ejecute una clase que contiene el procedimiento para obtener el perimetro y el area ya se 
+	el menu		1. Cuadrado.
+			2. Triángulo.
+			3. Circulo.
+			4. Salir del sistema.
+MANEJANDO LOS ERRORES
+
+
+
+THE CODE IS IN JAVA FORMAT
+OBJECTIVE: 
+	TO PRINT A MENU THAT SHOWS 4 OPCION FROM 1 TO 4 AND EACH NUMBER REPRESENTS A CLASS WHERE
+THE INSTRUCCION ARE. THE POINT IS TO CALCULATE THE AREA AND PERIMETER ON 
+	THE MENU	1. SQUARE.
+			2. TRIANGLE
+			3. CIRCLE.
+			4. END PROGRAM
+MANAGING THE ERRORS 
